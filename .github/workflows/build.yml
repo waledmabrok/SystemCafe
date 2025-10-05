@@ -1,0 +1,41 @@
+name: Build Release APK/AAB
+
+on:
+  push:
+    branches:
+      - main
+  release:
+    types: [published]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      # خطوة 1: سحب الكود
+      - uses: actions/checkout@v3
+
+      # خطوة 2: تثبيت Flutter
+      - uses: subosito/flutter-action@v2
+        with:
+          flutter-version: '3.24.5' # أو النسخة اللي عندك
+
+      # خطوة 3: تثبيت dependencies
+      - run: flutter pub get
+
+      # خطوة 4: استرجاع keystore من Secrets
+      - run: |
+          echo "$KEYSTORE_BASE64" | base64 --decode > android/app/my-key.jks
+
+      # خطوة 5: build APK و AAB
+      - run: flutter build apk --release
+      - run: flutter build appbundle --release
+
+      # خطوة 6: رفع الملفات كـ artifacts
+      - name: Upload APK and AAB
+        uses: actions/upload-artifact@v3
+        with:
+          name: release-build
+          path: |
+            build/app/outputs/flutter-apk/app-release.apk
+            build/app/outputs/bundle/release/app-release.aab
