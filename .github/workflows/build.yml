@@ -33,7 +33,7 @@ jobs:
 
       # خطوة 6: رفع الملفات كـ artifacts
       - name: Upload APK and AAB
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: release-build
           path: |
