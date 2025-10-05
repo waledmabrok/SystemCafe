@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:path/path.dart';
 import 'package:sqflite/sqflite.dart';
 import 'package:xo/db_helper.dart';
-import 'package:xo/screens/staff/staff_dashboard.dart';
+import 'package:xo/Screens/staff/staff_dashboard.dart';
 
 import 'Screens/admin/admin.dart';
 import 'Screens/login.dart';
