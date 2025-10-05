@@ -18,7 +18,8 @@ jobs:
       # خطوة 2: تثبيت Flutter
       - uses: subosito/flutter-action@v2
         with:
-          flutter-version: '3.24.5' # أو النسخة اللي عندك
+          flutter-version: '3.27.0-0.1.pre'  # نسخة تدعم Dart 3.7
+
 
       # خطوة 3: تثبيت dependencies
       - run: flutter pub get
