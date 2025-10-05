@@ -26,7 +26,10 @@ jobs:
       # خطوة 4: استرجاع keystore من Secrets
       - run: |
           echo "$KEYSTORE_BASE64" | base64 --decode > android/app/my-key.jks
-
+          echo "storePassword=${{ secrets.KEYSTORE_PASSWORD }}" > android/key.properties
+          echo "keyPassword=${{ secrets.KEY_PASSWORD }}" >> android/key.properties
+          echo "keyAlias=${{ secrets.KEY_ALIAS }}" >> android/key.properties
+          echo "storeFile=app/my-key.jks" >> android/key.properties
       # خطوة 5: build APK و AAB
       - run: flutter build apk --release
       - run: flutter build appbundle --release
