@@ -85,7 +85,7 @@ class XOCafeApp extends StatelessWidget {
         ),
 
         // ⚪ Card
-        cardTheme: CardThemeData(
+        /*    cardTheme: CardThemeData(
           elevation: 3,
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(12),
@@ -93,6 +93,7 @@ class XOCafeApp extends StatelessWidget {
           shadowColor: Colors.black26,
           margin: EdgeInsets.symmetric(vertical: 6, horizontal: 0),
         ),
+    */
       ),
       debugShowCheckedModeBanner: false,
       builder: (context, child) {
